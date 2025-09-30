@@ -60,7 +60,16 @@ model= keras.Sequential([
 model.compile(optimizer='sgd',loss='binary_crossentropy',
               metrics=['accuracy'])
 
+#we have multiple gradient descent
+#Vanilla gradient descent(whole data points in once)
+history= model.fit(x_train.values,y_train.values,
+                   validation_data=(x_test.values,y_test.values),
+                   epochs=100,batch_size=len(x_train),verbose=1)
+#Stochastic gradient descent(each row separately)
+history= model.fit(x_train.values,y_train.values,
+                   validation_data=(x_test.values,y_test.values),
+                   epochs=100,batch_size=1,verbose=1)
+#Mini batch gradient descent....
 history= model.fit(x_train.values,y_train.values,
                    validation_data=(x_test.values,y_test.values),
                    epochs=100,batch_size=4,verbose=1)
-
