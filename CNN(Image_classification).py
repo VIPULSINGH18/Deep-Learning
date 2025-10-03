@@ -103,3 +103,20 @@ history_cnn= cnn.fit(x_train_cnn,y_train_cat,epochs=5,batch_size=32,validation_d
 cnn_accuracy= cnn.evaluate(x_test_cnn,y_test_cat,verbose=0)
 cnn_accuracy  #final accuracy using cnn
 
+
+def plot_training(history, title):
+    plt.figure(figsize=(12,4))
+    plt.subplot(1,2,1)
+    plt.plot(history.history['accuracy'], label="Train")
+    plt.plot(history.history['val_accuracy'], label="Val")
+    plt.title(f"{title} Accuracy")
+    plt.legend()
+
+    plt.subplot(1,2,2)
+    plt.plot(history.history['loss'], label="Train")
+    plt.plot(history.history['val_loss'], label="Val")
+    plt.title(f"{title} Loss")
+    plt.legend()
+    plt.show()
+
+
