@@ -119,4 +119,8 @@ def plot_training(history, title):
     plt.legend()
     plt.show()
 
+plot_training(history_percep, "Perceptron")
+plot_training(history_ann, "ANN")
+plot_training(history_cnn, "CNN")
+
 
